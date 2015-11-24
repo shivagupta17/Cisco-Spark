@@ -1,10 +1,11 @@
-require('./styles.css');
-var elem = () => {
-  var element = document.createElement('h1');
-  element.innerHTML = 'React Webpack Starter';
-  return element;
-}
+import './styles.css';
 
-var app = document.createElement('div');
-document.body.appendChild(app);
-app.appendChild(elem());
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './components/App';
+
+(() => {
+  const app = document.createElement('div');
+  document.body.appendChild(app);
+  ReactDOM.render(<App/>, app);
+}())
