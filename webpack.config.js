@@ -9,6 +9,7 @@ const PATHS = {
   generic: path.join(__dirname, 'app/'),
   build: path.join(__dirname, 'dist')
 };
+process.env.BABEL_ENV = TARGET;
 
 var common = {
   entry: PATHS.app,
