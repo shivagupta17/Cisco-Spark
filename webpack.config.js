@@ -6,7 +6,7 @@ var path = require('path'),
 const TARGET = process.env.npm_lifecycle_event;
 const PATHS = {
   app: path.join(__dirname, 'app/main'),
-  styles: path.join(__dirname, 'app/'),
+  generic: path.join(__dirname, 'app/'),
   build: path.join(__dirname, 'dist')
 };
 
@@ -16,11 +16,18 @@ var common = {
     path: PATHS.build,
     filename: 'bundle.js'
   },
+  resolve: {
+    extensions: ['', '.js', '.jsx']
+  },
   module: {
     loaders: [{
       test: /\.css$/,
       loaders: ['style', 'css'],
-      include: PATHS.styles
+      include: PATHS.generic
+    }, {
+      test: /\.jsx?$/,
+      loaders: ['babel'],
+      include: PATHS.generic
     }]
   },
   plugins: [
